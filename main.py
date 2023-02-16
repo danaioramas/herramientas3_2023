@@ -10,12 +10,11 @@ import plotly.figure_factory as ff
 
 df = px.data.gapminder()
 st.dataframe(df)
-listaPaises = df("country").unique().tolist()
-st.write(listaPaises)
+listaPaises = df["country"].unique()
 
 pais="Canada"
 with st.sidebar:
-   pais= st.selectbox("Paises",listaPaises)
+    pais= st.selectbox("Paises",listaPaises)
     st.write(pais)
 
 datosPais = df.query("country== '"+ pais + "'")
